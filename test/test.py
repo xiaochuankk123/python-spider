@@ -2,44 +2,39 @@ import pyautogui
 import time
 import random
 
+def moveAndClick(x,y,*timeout):
+    #随机常量
 
-def yaoqi():
-    # 休眠时间随机
-    secs = random.randint(0, 3)
-    # 点击组队
-    pyautogui.moveTo(424, 904)
-    pyautogui.click()
+    #x,y随机距离
+    randomSize=random.uniform(0, 20)
+    #鼠标移动时间
+    mouseMoveSecs=random.uniform(0, 0.1)
+    #点击次数
+    clickTimes=random.randint(4,8)
+    #间隔
+    secs=random.uniform(0.3,0.8)
+
+    print('时间打印：', clickTimes, mouseMoveSecs, randomSize)
     time.sleep(secs)
-    # 点击妖气封印
-    pyautogui.moveTo(433, 852)
-    pyautogui.click()
-    time.sleep(secs)
-    start = time.clock()
+    pyautogui.moveTo(x+randomSize, y+randomSize, mouseMoveSecs)
+    pyautogui.click(clicks=clickTimes)
+
+def yuhun():
     while(True):
-        end = time.clock()
-
-        # 鼠标移动时间随机
-        mouseMoveSecs = random.uniform(0.1, 0.3)
-        # 鼠标范围随机
-        randomSize = random.uniform(0, 2)
-        # 刷新、加入，准备
-        print('时间打印：', secs, mouseMoveSecs, randomSize)
-
-        time.sleep(secs)
-        pyautogui.moveTo(1116+randomSize, 907+randomSize, mouseMoveSecs)
-        pyautogui.typewrite('Hello world!',0.25)
-        pyautogui.click()
-        time.sleep(secs)
-        pyautogui.moveTo(1538+randomSize, 330+randomSize, mouseMoveSecs)
-        pyautogui.typewrite('Hello world!',0.25)
-        pyautogui.click()
-        time.sleep(secs)
-        pyautogui.moveTo(1668+randomSize, 806+randomSize, mouseMoveSecs)
-        pyautogui.typewrite('Hello world!',0.25)
-        pyautogui.click()
-        # 判断运行时长
-        if int(end-start) == 600:
-            break
-
-
-yaoqi()
+        #开始战斗按钮：
+        moveAndClick(x=1759,y=428)
+        time.sleep(60+random.uniform(1,2))
+        #等60秒，点点点
+        moveAndClick(x=1560,y=70)
+        moveAndClick(x=1560,y=570)
+        time.sleep(1+random.uniform(1,2))
+        moveAndClick(x=1560,y=70)
+        moveAndClick(x=1560,y=570)
+        time.sleep(1+random.uniform(1,2))
+        moveAndClick(x=1560,y=70)
+        moveAndClick(x=1560,y=570)
+        time.sleep(1+random.uniform(1,2))
+        moveAndClick(x=1560,y=70)
+        moveAndClick(x=1560,y=570)
+        time.sleep(10+random.uniform(1,2))
+yuhun()
